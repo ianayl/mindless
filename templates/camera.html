@@ -1,0 +1,9 @@
+<head>
+    <title>camera</title>
+</head>
+<body>
+<img src="{{ url_for('feed') }}" height="80%">
+<form method="post" action="{{ url_for('req') }}">
+    <input type="submit" value="Capture" name="capture"/>
+</form>
+</body>

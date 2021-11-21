@@ -1,0 +1,26 @@
+<head>
+    <title>Change label {{ label }} ({{ domain }})</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="{{url_for('static',filename='styles.css')}}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="http://127.0.0.1:5000">
+            <img src="{{url_for('static', filename='icon.png')}}" width="70" height="60" class="d-flexbox align-center justify-center" style="padding: 10px">
+            <span>mindless.</span>
+        </a>
+    </nav>
+    <div class="content">
+        <form class="form" method="post" action="{{ url_for('labelchreq', label=label, domain=domain) }}">
+            <h1>Change label of {{ label }} ({{domain}}):</h1>
+        <div class="form-entry">
+          <label>Enter a new label:</label>
+          <input class="textbox" type="text" name="newlabel" placeholder="{{label}}" required>
+        </div>
+
+        <input class="button textchange" type="submit" value="Change label" name="changelabel"/>
+        </form>
+    </div>
+</body>

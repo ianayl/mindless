@@ -1,0 +1,26 @@
+<head>
+    <title>[DANGEROUS] Retrain for new lock numbers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="{{url_for('static',filename='styles.css')}}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="http://127.0.0.1:5000">
+            <img src="{{url_for('static', filename='icon.png')}}" width="70" height="60" class="d-flexbox align-center justify-center" style="padding: 10px">
+            <span>mindless.</span>
+        </a>
+    </nav>
+    <div class="content">
+    <h1>Retrain for new lock numbers</h1>
+    <p>Are you sure? This will change <em>ALL</em> passwords. This action is irreversible! (I'm serious, this one's actually not reversible...)</p>
+<form class="form" method="post" action="{{ url_for('trainingcheck') }}">
+    <div>
+      <label>Type "Yes" (case sensitive; first letter is capital):</label>
+      <input class="textbox" type="text" name="check" placeholder="Type 'Yes'">
+    </div>
+    <input class="button textdelete" type="submit" value="Reset ALL my passwords, and retrain my lock numbers" name="submit"/>
+</form>
+    </div>
+</body>

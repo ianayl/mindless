@@ -1,0 +1,54 @@
+<head>
+    <title>Menu</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> !-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="{{url_for('static',filename='styles.css')}}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="http://127.0.0.1:5000">
+            <img src="{{url_for('static', filename='icon.png')}}" width="70" height="60" class="d-flexbox align-center justify-center" style="padding: 10px">
+            <span>mindless.</span>
+        </a>
+    </nav>
+    <div class="content">
+    <div class="flex-between">
+        <h1>Accounts</h1>
+        <form class="add" method="get" action="{{ url_for('add') }}">
+            <input class="addbtn" type="submit" value="+" name="add"/>
+        </form>
+    </div>
+    {% for domain, labels in table.items() %}
+    {% for label in labels %}
+    <div class="account-listing">
+        <div class="account-labels">
+            <span>{{ label }}</span>
+            <span><a href="{{'https://' + domain}}">({{ domain }})</a></span>
+        </div>
+        <div class="account-actions">
+        <form method="post" action="{{ url_for('changelabel', domain=domain, label=label) }}">
+            <input class="button" type="submit" value="Change label" name="changelabel"/>
+        </form>
+        <form method="post" action="{{ url_for('getreq', domain=domain, label=label) }}">
+            <input class="button" type="submit" value="Get" name="get"/>
+        </form>
+        <form method="post" action="{{ url_for('deletelabel', domain=domain, label=label) }}">
+            <input class="button" type="submit" value="Delete" name="delete"/>
+        </form>
+        </div>
+    </div>
+    {% endfor %}
+    {% endfor %}
+    <h1>Danger zone</h1>
+    <form class="danger-actions" method="post" action="{{ url_for('menureq') }}">
+        {% if train_state: %}
+        <input class="button" type="submit" value="Retrain Lock Numbers (DANGEROUS)" name="retrain"/>
+        {% else %}
+        <input class="button" type="submit" value="Train" name="train"/>
+        {% endif %}
+    </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>

@@ -1,0 +1,21 @@
+<head>
+    <title>Encode results for {{label}} ({{domain}})</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="{{url_for('static',filename='styles.css')}}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="http://127.0.0.1:5000">
+            <img src="{{url_for('static', filename='icon.png')}}" width="70" height="60" class="d-flexbox align-center justify-center" style="padding: 10px">
+            <span>mindless.</span>
+        </a>
+    </nav>
+    <div class="content">
+    <h1>Password for {{label}} ({{domain}})</h1>
+    <h2>{{res}}</h2>
+    <p>Password should have been copied to your clipboard already!</p>
+    <button class="button textdelete" value="Return" name="return" onclick="window.location.href = 'http://127.0.0.1:5000'">Return</button>
+        </div>
+</body>

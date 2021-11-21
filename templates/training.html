@@ -1,0 +1,16 @@
+<head>
+    <title>Training</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="{{url_for('static',filename='styles.css')}}" rel="stylesheet">
+</head>
+<body style="background-color: black; display: flex; justify-content: center; align-items: center;">
+    <div class="content content-center">
+        <h1 style="color: white;">Training new lock numbers:</h1>
+    <img src="{{ url_for('trainfeed') }}" height="80%">
+    <form method="post" action="{{ url_for('trainreq') }}">
+        <input class="button shutter" type="submit" value="Capture" name="capture"/>
+    </form>
+    </div>
+</body>

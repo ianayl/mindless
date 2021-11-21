@@ -1,0 +1,22 @@
+<head>
+    <title>Delete label {{ label }} ({{ domain }})</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="{{url_for('static',filename='styles.css')}}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="http://127.0.0.1:5000">
+            <img src="{{url_for('static', filename='icon.png')}}" width="70" height="60" class="d-flexbox align-center justify-center" style="padding: 10px">
+            <span>mindless.</span>
+        </a>
+    </nav>
+    <div class="content">
+        <h1>Delete label {{ label }} ({{domain}})</h1>
+<p>Are you sure? This action is irreversible! (Unless you remember the label, of course)</p>
+<form method="post" action="{{ url_for('delreq', label=label, domain=domain) }}">
+    <input class="button textdelete" type="submit" value="Delete label {{ label }}" name="deletelabel"/>
+</form>
+</div>
+</body>
